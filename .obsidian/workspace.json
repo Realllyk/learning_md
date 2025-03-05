@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java基础/反射.md",
+                "file": "Java基础/注解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "反射"
+              "title": "注解"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java基础/反射.md",
+                "file": "Java基础/注解.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "反射 的大纲"
+              "title": "注解 的大纲"
             }
           }
         ],
@@ -183,9 +183,11 @@
   },
   "active": "50e924a5d69cce2b",
   "lastOpenFiles": [
-    "Java基础/泛型.md",
     "Java基础/面向对象.md",
+    "Java基础/设计模式.md",
+    "Java基础/注解.md",
     "Java基础/反射.md",
+    "Java基础/泛型.md",
     "Java基础/拷贝.md",
     "欢迎.md",
     "Java基础/垃圾回收机制（GC）.md",
