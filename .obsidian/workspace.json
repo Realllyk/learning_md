@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java基础/stream API.md",
+                "file": "Java基础/Java volatile 关键字总结.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "stream API"
+              "title": "Java volatile 关键字总结"
             }
           }
         ],
@@ -89,13 +89,11 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "8c00443c4e4e35e3",
@@ -157,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java基础/stream API.md",
+                "file": "Java基础/Java volatile 关键字总结.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "stream API 的大纲"
+              "title": "Java volatile 关键字总结 的大纲"
             }
           }
         ],
@@ -185,8 +183,12 @@
   },
   "active": "18c0622b450e26de",
   "lastOpenFiles": [
-    "Java基础/反射.md",
+    "Java集合/List.md",
+    "Java基础/Java volatile 关键字总结.md",
+    "Java集合/概念.md",
     "Java基础/stream API.md",
+    "Java集合",
+    "Java基础/反射.md",
     "问题.md",
     "Java基础/面向对象.md",
     "Java基础/异常.md",
