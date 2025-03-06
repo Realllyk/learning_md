@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java基础/Java volatile 关键字总结.md",
+                "file": "Java集合/List.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java volatile 关键字总结"
+              "title": "List"
             }
           }
         ],
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java基础/Java volatile 关键字总结.md",
+                "file": "Java集合/List.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Java volatile 关键字总结 的大纲"
+              "title": "List 的大纲"
             }
           }
         ],
@@ -183,8 +183,8 @@
   },
   "active": "18c0622b450e26de",
   "lastOpenFiles": [
-    "Java集合/List.md",
     "Java基础/Java volatile 关键字总结.md",
+    "Java集合/List.md",
     "Java集合/概念.md",
     "Java基础/stream API.md",
     "Java集合",

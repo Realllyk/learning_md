@@ -110,3 +110,135 @@ public class ArrayListTest {
 - **`ArrayList` 触发扩容后，底层 `elementData` 数组会指向新的地址**，旧数组会被垃圾回收。
 - **`ArrayList` 变量本身的引用不会变**，它仍然是同一个对象，只是内部数组的引用更新了。
 - **如果有其他地方持有旧 `elementData` 数组的引用，它仍然可以访问旧数据，直到 GC 回收它**。
+
+
+---
+
+
+## CopyOnWriteArrayList是如何实现的
+### 1. CopyOnWriteArrayList 的线程安全机制
+
+`CopyOnWriteArrayList` 底层使用的是**数组**来存储数据，并通过 `volatile` 关键字保证对该数组对象的可见性，确保线程可以及时获取最新数据。
+
+```java
+private transient volatile Object[] array;
+```
+
+### 2. 插入操作的线程安全
+
+在写入操作时，`CopyOnWriteArrayList` 使用 **ReentrantLock**（可重入锁）保证线程安全。
+
+```java
+public boolean add(E e) {
+    // 获取锁
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        // 获取当前 List 备份数组的快照
+        Object[] elements = getArray();
+        int len = elements.length;
+        
+        // 创建一个新数组，比原数组大 1
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        
+        // 在新数组的最后一个位置添加新元素
+        newElements[len] = e;
+        
+        // 用新数组替换旧数组
+        setArray(newElements);
+        
+        return true;
+    } finally {
+        lock.unlock();
+    }
+}
+```
+
+#### 解析：
+
+- **读取旧数组**：在添加元素前，先获取当前 `array` 数组的快照。
+- **复制数组**：创建一个新数组，长度比原数组大 1，并复制旧数组的所有元素到新数组。
+- **添加元素**：将新元素插入到新数组的最后一个位置。
+- **替换数组**：用 `setArray(newElements)` 替换旧数组。
+- **加锁保证线程安全**：在操作期间使用 `ReentrantLock` 进行加锁，防止多个线程同时修改。
+
+这种写时复制（Copy-On-Write）策略确保了**写操作的线程安全性**，但每次写入都需要复制整个数组，性能较低，因此适用于 **读多写少** 的场景。
+
+
+### 3. 修改元素的线程安全
+
+当 `CopyOnWriteArrayList` 修改数组中的某个元素时（`set(int index, E element)` 方法），同样会创建一个新数组，并在新数组上进行修改，然后替换旧数组。
+
+```java
+public E set(int index, E element) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        Object oldValue = elements[index];
+        
+        // 复制数组并修改指定索引的值
+        Object[] newElements = Arrays.copyOf(elements, elements.length);
+        newElements[index] = element;
+        
+        // 替换数组
+        setArray(newElements);
+        
+        return (E) oldValue;
+    } finally {
+        lock.unlock();
+    }
+}
+```
+
+### 解析：
+
+- `set(int index, E element)` 方法不会直接修改原数组，而是复制一个新数组，在新数组上修改后再替换。
+- 由于每次修改都创建新数组，**写入成本较高**。
+- 适用于**读多写少**的场景。
+
+
+### 4. 读取操作的线程安全
+
+由于 `CopyOnWriteArrayList` 在写入时复制新数组并替换旧数组，而读取操作不会修改数据，因此 `get()` 方法无需加锁，可以直接读取 `array` 快照，提高读取性能。
+
+```java
+public E get(int index) {
+    return get(getArray(), index);
+}
+```
+
+#### 解析：
+
+- 读取时，直接获取当前数组 `array`，保证读取操作不会受到并发写入的影响。
+- 由于 `array` 是 `volatile` 变量，保证了可见性，读操作不会获取旧数据。
+
+### 5. CopyOnWriteArrayList 适用场景
+
+|适用场景|说明|
+|---|---|
+|**读多写少**|由于写操作会复制整个数组，因此适用于高并发读、低并发写的场景，如缓存、黑名单等。|
+|**遍历不受干扰**|由于 `CopyOnWriteArrayList` 在写入时创建新数组，因此遍历时不会抛 `ConcurrentModificationException`，适合并发环境中的遍历操作。|
+|**适用于不可变数据**|适合存储相对固定的数据，减少频繁的数组复制。|
+
+### 6. CopyOnWriteArrayList 与 ArrayList 的对比
+
+|   |   |   |
+|---|---|---|
+|特性|CopyOnWriteArrayList|ArrayList|
+|线程安全|✅ 是|❌ 否（需手动同步）|
+|读取性能|✅ 高|✅ 高|
+|写入性能|❌ 低（需要复制数组）|✅ 高（直接修改原数组）|
+|适合场景|读多写少|写多读少|
+
+### 7. 总结
+
+- `CopyOnWriteArrayList` 通过 **volatile** 关键字保证可见性，并在写入时采用 **写时复制** 方式，确保线程安全。
+- 适用于**读多写少**的场景，例如**缓存、黑名单、系统配置数据等**。
+- 由于写操作涉及数组复制，**写入性能较低**，不适用于频繁写入的场景。
+- 迭代时不会抛 `ConcurrentModificationException`，适用于并发环境下的遍历操作。
+
+这种 `Copy-On-Write` 机制虽然牺牲了写入性能，但带来了**线程安全的无锁读**，在高并发读的场景中表现优越。
+
+
+--- 
