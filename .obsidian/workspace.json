@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "651647d73ce5ff0a",
+        "id": "c4431f9fcc846d36",
         "type": "tabs",
         "children": [
           {
-            "id": "d58474983706c018",
+            "id": "e0c2c5c394878963",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java基础/面向对象.md",
+                "file": "Java集合/Map.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "面向对象"
-            }
-          },
-          {
-            "id": "18c0622b450e26de",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Java集合/List.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "List"
+              "title": "Map"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -155,13 +140,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java集合/List.md",
+                "file": "Java集合/Map.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "List 的大纲"
+              "title": "Map 的大纲"
             }
           }
         ],
@@ -181,22 +166,30 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "18c0622b450e26de",
+  "active": "e0c2c5c394878963",
   "lastOpenFiles": [
-    "Java基础/Java volatile 关键字总结.md",
+    "Java集合/image/hash_process.png",
+    "Java集合/image/hash_implements.png",
     "Java集合/List.md",
     "Java集合/概念.md",
+    "Java集合/Map.md",
+    "images/hash_implemets.md",
+    "images",
+    "问题.md",
+    "欢迎.md",
+    "Java基础/面向对象.md",
+    "().md",
+    "Java集合/新建文件夹",
+    "Java集合/image",
+    "Java基础/Java volatile 关键字总结.md",
     "Java基础/stream API.md",
     "Java集合",
     "Java基础/反射.md",
-    "问题.md",
-    "Java基础/面向对象.md",
     "Java基础/异常.md",
     "Java基础/注解.md",
     "Java基础/设计模式.md",
     "Java基础/泛型.md",
     "Java基础/拷贝.md",
-    "欢迎.md",
     "Java基础/垃圾回收机制（GC）.md",
     "Java基础"
   ]
