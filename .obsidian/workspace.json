@@ -184,6 +184,8 @@
   },
   "active": "e0c2c5c394878963",
   "lastOpenFiles": [
+    "Spring/images/ThreadLocal.png",
+    "Spring/images/synchronized lock update.png",
     "Spring/images/synchronized.png",
     "Java并发/多线程.md",
     "Java并发/并发安全.md",
@@ -216,9 +218,7 @@
     "Java并发/新建文件夹",
     "Java并发",
     "Java集合/image/1_8_concurrent.png",
-    "Java集合/image/1_7_concurrent.png",
     "Java基础/Java volatile 关键字总结.md",
-    "Java集合/image/hash_capacity.png",
     "images/hash_implemets.md",
     "images",
     "问题.md",
