@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机网络/传输层.md",
+                "file": "问题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "传输层"
+              "title": "问题"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机网络/传输层.md",
+                "file": "问题.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "传输层 的反向链接列表"
+              "title": "问题 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机网络/传输层.md",
+                "file": "问题.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "传输层 的出链列表"
+              "title": "问题 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机网络/传输层.md",
+                "file": "问题.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "传输层 的大纲"
+              "title": "问题 的大纲"
             }
           }
         ]
@@ -170,6 +170,7 @@
   },
   "active": "81191bebdba7e06a",
   "lastOpenFiles": [
+    "计算机网络/传输层.md",
     "计算机网络/images/lose_fin.webp",
     "计算机网络/images/lose_fin.webp.crdownload",
     "计算机网络/images/client_after_fin.webp",
@@ -188,12 +189,10 @@
     "计算机网络/images/miss_third_ack.webp.crdownload",
     "计算机网络/images/avoid_resource_waste.webp",
     "计算机网络/images/avoid_resource_waste.webp.crdownload",
-    "计算机网络/images/avoid_history_link.webp",
     "计算机网络/images/avoid_history_link.webp.crdownload",
     "计算机网络/网络模型.md",
     "Java基础/反射.md",
     "计算机网络/应用层.md",
-    "计算机网络/传输层.md",
     "计算机网络/images/tcp_third.webp.crdownload",
     "问题.md",
     "数据库/数据库.md",
