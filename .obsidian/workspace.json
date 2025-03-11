@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "问题.md",
+                "file": "计算机网络/网络模型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "问题"
+              "title": "网络模型"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "问题.md",
+                "file": "计算机网络/网络模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "问题 的反向链接列表"
+              "title": "网络模型 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "问题.md",
+                "file": "计算机网络/网络模型.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "问题 的出链列表"
+              "title": "网络模型 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "问题.md",
+                "file": "计算机网络/网络模型.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "问题 的大纲"
+              "title": "网络模型 的大纲"
             }
           }
         ]
@@ -170,6 +170,16 @@
   },
   "active": "81191bebdba7e06a",
   "lastOpenFiles": [
-    "计算机网络/网络模型.md"
+    "数据库/数据库.md",
+    "Java并发/多线程.md",
+    "Java并发/场景.md",
+    "Java并发/并发安全.md",
+    "计算机网络/网络模型.md",
+    "问题.md",
+    "计算机网络/images/TSL.webp",
+    "计算机网络/images/1716097892465-985f6cfe-66c8-4384-aabd-840821de1b66.webp",
+    "计算机网络/images/http_depackage.png",
+    "计算机网络/images/http_long_connect.png",
+    "计算机网络/images/http_short_cnnect.png"
   ]
 }
