@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "计算机网络/网络模型.md",
+                "file": "计算机网络/应用层.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "网络模型"
+              "title": "应用层"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "计算机网络/网络模型.md",
+                "file": "计算机网络/应用层.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "网络模型 的反向链接列表"
+              "title": "应用层 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "计算机网络/网络模型.md",
+                "file": "计算机网络/应用层.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "网络模型 的出链列表"
+              "title": "应用层 的出链列表"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "计算机网络/网络模型.md",
+                "file": "计算机网络/应用层.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "网络模型 的大纲"
+              "title": "应用层 的大纲"
             }
           }
         ]
@@ -170,12 +170,19 @@
   },
   "active": "81191bebdba7e06a",
   "lastOpenFiles": [
+    "问题.md",
+    "计算机网络/应用层.md",
+    "计算机网络/images/JWT_structure.webp",
+    "计算机网络/images/JWT_structure.webp.crdownload",
+    "计算机网络/images/dns_workflow.webp",
+    "计算机网络/images/dns_workflow.webp.crdownload",
+    "计算机网络/images/DNS_basic.webp",
+    "计算机网络/images/DNS_basic.webp.crdownload",
+    "计算机网络/网络模型.md",
     "数据库/数据库.md",
     "Java并发/多线程.md",
     "Java并发/场景.md",
     "Java并发/并发安全.md",
-    "计算机网络/网络模型.md",
-    "问题.md",
     "计算机网络/images/TSL.webp",
     "计算机网络/images/1716097892465-985f6cfe-66c8-4384-aabd-840821de1b66.webp",
     "计算机网络/images/http_depackage.png",
