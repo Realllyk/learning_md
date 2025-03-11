@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java集合/Map.md",
+                "file": "计算机网络/网络模型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Map"
+              "title": "网络模型"
             }
           }
         ],
@@ -55,8 +55,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "sortOrder": "alphabetical"
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -157,13 +156,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Java集合/Map.md",
-                "followCursor": false,
-                "showSearch": true,
-                "searchQuery": ""
+                "file": "计算机网络/网络模型.md"
               },
               "icon": "lucide-list",
-              "title": "Map 的大纲"
+              "title": "网络模型 的大纲"
             }
           }
         ],
@@ -185,26 +181,35 @@
   },
   "active": "612227f9a40d2e0b",
   "lastOpenFiles": [
+    "计算机网络/images/http_status.png",
+    "Java并发/多线程.md",
+    "计算机网络/网络模型.md",
+    "计算机网络/images/http_segment.png",
+    "计算机网络/images/tcp_ip.png",
+    "计算机网络/tcp_ip.png",
+    "计算机网络/images",
+    "计算机网络/新建文件夹",
+    "算法/数据结构/并查集.md",
+    "计算机网络",
+    "数据库/数据库.md",
+    "Spring/Spring.md",
+    "欢迎.md",
+    "Java集合/Map.md",
     "暑期实习.md",
     "gitignore.txt",
     "问题.md",
     "Java基础/Java volatile 关键字总结.md",
     "Java基础/拷贝.md",
     "Java基础/反射.md",
-    "欢迎.md",
-    "数据库/数据库.md",
     "Java并发/场景.md",
-    "Java并发/多线程.md",
     "Java并发/线程池.md",
     "Java并发/并发安全.md",
     "Java集合/概念.md",
     "Java集合/List.md",
-    "Java集合/Map.md",
     "Spring/images/thread_pool.png",
     "Spring/images/ThreadLocal.png",
     "Spring/images/synchronized lock update.png",
     "Spring/images/synchronized.png",
-    "Spring/Spring.md",
     "数据库",
     "Spring/images/loop_dependency.png",
     "Java基础/面向对象.md",
@@ -213,22 +218,14 @@
     "Spring/images/INVERSE_CONTROL.png",
     "Spring/images/jave_se_control.png",
     "Java基础/泛型.md",
-    "Spring/images/ssm.png",
-    "Spring/images/backend_framework.png",
     "Spring/images",
     "Spring/新建文件夹",
-    "算法/数据结构/并查集.md",
     "Spring",
     "算法/数据结构",
     "算法",
-    "Java并发/images/thread_status.png",
-    "Java并发/images",
-    "Java并发/新建文件夹",
-    "Java并发",
     "images/hash_implemets.md",
     "().md",
     "Java基础/stream API.md",
-    "Java基础/异常.md",
-    "Java基础/注解.md"
+    "Java基础/异常.md"
   ]
 }
