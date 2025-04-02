@@ -165,3 +165,101 @@ class BeanB {
 |**构造方法注入**|❌ **无法解决**|不支持|改为 `setter` 注入 或 `@Lazy` 延迟加载|
 |**多例（Prototype）模式**|❌ **无法解决**|不支持|需手动创建 Bean 或使用代理模式|
 |**单例（Singleton）模式**|✅ **可解决**|**Spring 三级缓存**|Spring 自动解决，无需修改|
+
+
+---
+
+
+## Bean的生命周期
+
+![[Bean_live.webp]]
+
+### **1. Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化**
+- **说明**：Spring 容器启动后，会从配置（如 XML 或注解）中加载 Bean 的定义。
+- **主要作用**：实例化对象，类似于 `new` 出一个类的实例。
+
+### **2. Bean实例化后，对其依赖的引用（自动注入）和属性进行赋值**
+- **说明**：Spring 会把其它 Bean（依赖项）注入到当前 Bean 中。
+- **对应机制**：依赖注入（DI，Dependency Injection）
+
+### **3. 如果Bean实现了BeanNameAware接口，Spring将Bean的Id传递给setBeanName()方法**
+- **接口作用**：`BeanNameAware` 接口让 Bean 获取自己在 Spring 容器中的 ID 名称。
+- **方法作用**：`setBeanName(String name)` 会被调用，参数是 Bean 的名称。
+
+### **4. 如果Bean实现了BeanFactoryAware接口，Spring调用setBeanFactory()方法**
+- **接口作用**：`BeanFactoryAware` 让 Bean 获取到创建它的 `BeanFactory`。
+- **方法作用**：`setBeanFactory(BeanFactory beanFactory)` 允许你在 Bean 中访问容器本身。
+
+### **5. 如果Bean实现了ApplicationContextAware接口，Spring调用setApplicationContext()方法**
+- **接口作用**：`ApplicationContextAware` 允许 Bean 拿到完整的 `ApplicationContext`（更强大的容器上下文）。
+- **方法作用**：`setApplicationContext(ApplicationContext context)` 可以用来获取上下文中的其他 Bean、资源等。
+
+#### 🔍 **什么是 ApplicationContext？**
+`ApplicationContext` 是 Spring 容器的核心接口之一，继承自 `BeanFactory`，并在其基础上扩展了大量功能，比如：
+- 国际化支持（MessageSource）
+- 事件发布机制（ApplicationEventPublisher）
+- 资源加载（ResourceLoader）
+- 注解处理、AOP 支持等
+
+#### 小结一句话：
+> `ApplicationContextAware` 是 Spring 提供的“后门接口”，让 Bean 可以获取整个 Spring 容器，从而实现动态 Bean 获取、事件发布、资源读取等高级功能。
+
+
+### **6. 如果Bean实现了BeanPostProcessor接口，Spring将调用其postProcessBeforeInitialization()方法**
+- **接口作用**：`BeanPostProcessor` 用于在 Bean 初始化之前对 Bean 进行自定义操作。
+- **方法作用**：`postProcessBeforeInitialization(Object bean, String beanName)` 在 `@PostConstruct` 或 `afterPropertiesSet()` 之前执行。
+
+### **7. 如果Bean实现了InitializingBean接口，Spring将调用afterPropertiesSet()方法**
+- **接口作用**：`InitializingBean` 表示 Bean 初始化完成后要做一些动作。
+- **方法作用**：`afterPropertiesSet()` 可用于执行初始化逻辑。
+- **补充**：如果使用 `init-method`（XML 配置或注解 `@Bean(initMethod = "")`），也会执行指定方法。
+
+### **8. 如果Bean实现了BeanPostProcessor接口，Spring调用postProcessAfterInitialization()方法**
+- **方法作用**：`postProcessAfterInitialization(Object bean, String beanName)` 是在初始化完成之后调用，可以对 Bean 做一些增强（如 AOP 动态代理）。
+
+
+### **9. Bean此时已准备就绪，可以被应用程序使用**
+- **说明**：这时 Bean 生命周期中的初始化阶段结束，可以正式被业务逻辑调用。
+
+### **10. 如果Bean实现了DisposableBean接口，Spring将调用其destroy()方法**
+- **接口作用**：`DisposableBean` 允许你在容器关闭时清理资源。
+- **方法作用**：`destroy()` 会在 Bean 被销毁前调用，适用于释放资源等操作。
+- **补充**：如果定义了 `destroy-method`，也会被调用。
+
+
+
+---
+
+## Bean 的初始化流程（和上面连起来）：
+
+```text
+[1] 实例化（new）
+    ↓
+[2] 依赖注入
+    ↓
+[3] 调用 Aware 接口（比如 ApplicationContextAware）
+    ↓
+[4] postProcessBeforeInitialization()
+    ↓
+[5] @PostConstruct、afterPropertiesSet() 等初始化方法
+    ↓
+[6] ✅ postProcessAfterInitialization() ← 就在这一步，AOP 会替换成代理对象
+    ↓
+[7] Bean 放入 singletonObjects（一级缓存）
+```
+
+### 那么，AOP 是怎么实现代理的？
+
+> Spring AOP 是通过一个特殊的 `BeanPostProcessor` 来实现的，名字叫：
+
+```java
+AnnotationAwareAspectJAutoProxyCreator
+```
+
+它是 `BeanPostProcessor` 的子类，**会在第6步（afterInitialization）的时候判断这个 Bean 是否需要代理，如果需要就创建代理对象**。
+
+
+### ✅ 如果符合 AOP 条件（被某个切面匹配上）：
+- Spring 就会创建一个 **代理对象（Proxy）**
+- 并且用代理对象 **替换原始 Bean**
+- 所以放入一级缓存的就是 **代理对象，而不是原始对象**
