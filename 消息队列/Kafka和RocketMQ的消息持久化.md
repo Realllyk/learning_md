@@ -64,14 +64,14 @@
 
 ## 3. Kafka vs RocketMQ 对比
 
-| 特性 | Kafka | RocketMQ |
-|------|-------|----------|
-| **日志结构** | Partition 自己就是日志 | CommitLog（全局日志）+ ConsumeQueue（索引） |
-| **索引机制** | 稀疏索引（.index 文件） | 稠密索引（ConsumeQueue） |
-| **写入方式** | 顺序写 Partition Log | 顺序写 CommitLog |
-| **刷盘策略** | 依赖 OS Page Cache + flush.ms/messages | 异步刷盘 / 同步刷盘 |
-| **副本机制** | ISR 副本同步（acks 参数控制） | Dledger 多副本同步 |
-| **消费读取** | offset + index → Log | ConsumeQueue → CommitLog |
+| 特性       | Kafka                                | RocketMQ                          |
+| -------- | ------------------------------------ | --------------------------------- |
+| **日志结构** | Partition 自己就是日志                     | CommitLog（全局日志）+ ConsumeQueue（索引） |
+| **索引机制** | 稀疏索引（.index 文件）                      | 稠密索引（ConsumeQueue）                |
+| **写入方式** | 顺序写 Partition Log                    | 顺序写 CommitLog                     |
+| **刷盘策略** | 依赖 OS Page Cache + flush.ms/messages | 异步刷盘 / 同步刷盘                       |
+| **副本机制** | ISR 副本同步（acks 参数控制）                  | Dledger 多副本同步                     |
+| **消费读取** | offset + index → Log                 | ConsumeQueue → CommitLog          |
 
 ## 4. 总结
 - Kafka 偏重 **高吞吐**，通过 Partition + Page Cache + 副本保证性能与可靠性。
